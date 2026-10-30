@@ -1,8 +1,19 @@
 # Cricket Ad Muter
 
+[![Release](https://img.shields.io/github/v/release/absinha86/cricket-ad-muter-extension)](../../releases/latest)
+[![License: MIT](https://img.shields.io/github/license/absinha86/cricket-ad-muter-extension)](LICENSE)
+![Manifest V3](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4?logo=googlechrome&logoColor=white)
+![No tracking](https://img.shields.io/badge/tracking-none-2ea44f)
+
 A Chrome extension that mutes, or turns down, ad breaks during live cricket on **JioHotstar** and **SonyLIV**, and brings the sound back the moment the match resumes.
 
 It doesn't block or skip ads. It only controls your own tab's sound.
+
+![Cricket Ad Muter muting an ad break on SonyLIV](store/1-ad-muted.png)
+
+| The badge on the video | Your breaks, and you're in control |
+|---|---|
+| ![Badge on the video](store/2-badge-on-video.png) | ![Ad breaks this match](store/3-your-call.png) |
 
 ## Features
 

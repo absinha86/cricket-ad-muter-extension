@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: An ad played with sound, or the match stayed muted
+    url: https://github.com/absinha86/cricket-ad-muter-support/issues/new
+    about: Detection problems are tracked in the support repo. The quickest way is ⚙ Settings → Report a problem in the extension.
+  - name: Security problem
+    url: https://github.com/absinha86/cricket-ad-muter-extension/security/advisories/new
+    about: Please report privately, not in a public issue.

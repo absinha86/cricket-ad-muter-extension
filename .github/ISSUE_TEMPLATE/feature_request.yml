@@ -1,0 +1,20 @@
+name: Feature idea
+description: Suggest something new
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like?
+      description: The problem it solves matters more than the exact solution.
+    validations:
+      required: true
+  - type: dropdown
+    id: site
+    attributes:
+      label: Site
+      options:
+        - JioHotstar
+        - SonyLIV
+        - Both
+        - Another site

@@ -1,0 +1,43 @@
+name: Bug report
+description: Something in the extension doesn't work as it should (not ad detection)
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open a live match on …
+        2. Click …
+        3. See …
+  - type: dropdown
+    id: site
+    attributes:
+      label: Site
+      options:
+        - JioHotstar
+        - SonyLIV
+        - Both
+        - Not site-specific
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Extension version
+      description: Shown on the extension's card in chrome://extensions
+      placeholder: "1.1.0"
+    validations:
+      required: true
+  - type: input
+    id: chrome
+    attributes:
+      label: Chrome version
+      description: chrome://version, first line

@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping. Bug reports, detection fixes and code changes are all welcome.
+Thanks for helping. Bug reports, detection fixes and code changes are all welcome. Please follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Where to report what
 

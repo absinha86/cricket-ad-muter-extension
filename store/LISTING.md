@@ -52,10 +52,10 @@ Cricket Ad Muter is an independent project and is not affiliated with, endorsed 
 
 **Small promo tile** (440×280): `store/promo-small-440x280.png`
 
-**Screenshots** (1280×800): upload in this order. These show the 1.0 popup and JioHotstar only; retake them for 1.1 (new popup, the badge on the video, SonyLIV).
-1. `store/1-ad-muted.png`
-2. `store/2-match-back.png`
-3. `store/3-settings.png`
+**Screenshots** (1280×800): upload in this order. They show the 1.1 popup with made-up advertiser names; the player in the second one is an illustration, not broadcast footage.
+1. `store/1-ad-muted.png`: an ad muted on SonyLIV, with the countdown and "Unmute this break"
+2. `store/2-badge-on-video.png`: the badge on the video
+3. `store/3-your-call.png`: JioHotstar, this match's ad breaks and "Mute now"
 
 **Icon**: `icons/icon-128.png`
 

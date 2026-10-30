@@ -111,6 +111,10 @@ To build the zip: `powershell -ExecutionPolicy Bypass -File tools\package.ps1`. 
 
 To publish a release: bump `version` in `manifest.json`, build the zip, then on GitHub go to **Releases → Draft a new release**, create a tag like `v1.1.0`, and attach the zip.
 
+## License
+
+[MIT](LICENSE)
+
 ---
 
 Not affiliated with, endorsed by, or sponsored by JioStar, JioHotstar, Sony Pictures Networks India or SonyLIV. All trademarks belong to their owners.

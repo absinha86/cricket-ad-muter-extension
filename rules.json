@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "updated": "2026-10-22",
+  "notes": "Ad detection rules. Bundled with the extension and also fetched from GitHub so detection can be fixed without a store update. Bump 'version' on every change. A newer file replaces the bundled one completely, so keep every site's entries in it. adPings: requests that mark an ad's start; hosts must stay within that site's host permissions (sites.js). adMarkers: page elements that show while an ad plays ('playing': must be a playing video; 'timer': element showing the seconds left). Versions before 1.1.0 ignore 'site' and adMarkers.",
+  "adPings": [
+    {
+      "id": "hotstar-ct-impression",
+      "site": "hotstar",
+      "host": "(^|\\.)(jio)?hotstar\\.com$",
+      "path": "/track/ct_impression|impression",
+      "nameParams": ["adName", "ad_name"]
+    }
+  ],
+  "adMarkers": [
+    {
+      "id": "sonyliv-dai",
+      "site": "sonyliv",
+      "selector": ".dai-ad-playing",
+      "timer": ".ad-label-timer, .ad-timer-container"
+    },
+    {
+      "id": "sonyliv-preroll",
+      "site": "sonyliv",
+      "selector": ".ad-wrapper video[title='Advertisement']",
+      "playing": true,
+      "timer": ".ad-label-timer"
+    }
+  ],
+  "durationParams": ["duration", "adDuration", "ad_duration", "dur"],
+  "durationPatterns": [
+    "(\\d{1,3})s(?:Eng(?:lish)?|Hin(?:di)?)",
+    "(?:HIN|ENG|HINDI|ENGLISH)[^\\d]*(\\d{1,3})",
+    "(?:^|[^a-z0-9])(\\d{1,3})\\s*(?:s|sec|secs|seconds)(?:[^a-z]|$)"
+  ],
+  "maxAdSeconds": 180,
+  "maxMarkerSeconds": 600
+}

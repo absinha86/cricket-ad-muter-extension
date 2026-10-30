@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Cricket Ad Muter",
+  "short_name": "Ad Muter",
+  "version": "1.1.0",
+  "description": "Mutes ad breaks during live cricket on JioHotstar and SonyLIV and brings the sound back when the match resumes.",
+  "homepage_url": "https://github.com/absinha86/cricket-ad-muter-support",
+  "minimum_chrome_version": "110",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": ["storage", "webRequest", "scripting", "notifications", "alarms", "activeTab"],
+  "optional_host_permissions": ["*://*.hotstar.com/*", "*://*.jiohotstar.com/*", "*://*.sonyliv.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Cricket Ad Muter",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    }
+  },
+  "commands": {
+    "toggle-enabled": {
+      "suggested_key": { "default": "Alt+Shift+H" },
+      "description": "Pause / resume ad muting"
+    },
+    "toggle-ad-sound": {
+      "suggested_key": { "default": "Alt+Shift+M" },
+      "description": "Unmute this ad break, or mute now"
+    }
+  }
+}

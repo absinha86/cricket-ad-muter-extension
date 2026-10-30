@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Main view: what's happening now, and the ads skipped -->
+  <div class="view" id="mainView">
+    <header>
+      <img src="icons/icon-32.png" alt="" class="logo">
+      <div class="brand">
+        <div class="name">Cricket Ad Muter</div>
+        <div class="sub" id="sub">Live cricket, minus the ad noise</div>
+      </div>
+      <span class="site-chip" id="siteChip" hidden></span>
+      <label class="switch" id="enabledSwitch" title="Pause / resume">
+        <input type="checkbox" id="enabled" aria-label="Ad muting on"><span class="slider"></span>
+      </label>
+    </header>
+
+    <main>
+      <!-- data-state: idle / live / ad / heard / paused / waiting -->
+      <section class="card status" id="status" data-state="idle" aria-live="polite">
+        <div class="status-row">
+          <div class="indicator" aria-hidden="true">
+            <svg class="ring" viewBox="0 0 64 64"><circle class="track" cx="32" cy="32" r="28"/><circle class="arc" id="ringArc" cx="32" cy="32" r="28"/></svg>
+            <span class="ring-text" id="countdown"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="status-text">
+            <div class="title" id="statusTitle">Checking…</div>
+            <div class="detail" id="statusDetail"></div>
+          </div>
+        </div>
+        <div class="actions" id="statusActions" hidden></div>
+      </section>
+
+      <section class="card history">
+        <div class="scope" id="scope" role="tablist" aria-label="Show ads skipped">
+          <button role="tab" data-scope="match">This match</button>
+          <button role="tab" data-scope="today">Today</button>
+          <button role="tab" data-scope="week">7 days</button>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="num" id="statBreaks">0</div><div class="lbl" id="statBreaksLbl">breaks</div></div>
+          <div class="stat"><div class="num" id="statAds">0</div><div class="lbl" id="statAdsLbl">ads</div></div>
+          <div class="stat"><div class="num" id="statTime">0s</div><div class="lbl">skipped</div></div>
+        </div>
+        <ul id="recent"></ul>
+        <div class="empty" id="recentEmpty" hidden></div>
+      </section>
+    </main>
+
+    <footer>
+      <span class="keys" id="keys"></span>
+      <button class="link" id="openSettings"><span aria-hidden="true">⚙</span> Settings</button>
+    </footer>
+  </div>
+
+  <!-- Settings view -->
+  <div class="view" id="settingsView" hidden>
+    <header class="view-head">
+      <button class="icon-btn" id="closeSettings" aria-label="Back">‹</button>
+      <div class="name">Settings</div>
+      <span class="saved" id="saved">Saved</span>
+    </header>
+
+    <main>
+      <section class="card group">
+        <div class="row-label">During ads</div>
+        <div class="segmented" role="radiogroup" aria-label="During ads">
+          <button role="radio" data-mode="mute">🔇 Mute</button>
+          <button role="radio" data-mode="lower">🔉 Lower volume</button>
+        </div>
+        <div class="range-row" id="lowerRow" hidden>
+          <input type="range" id="lowerVolume" min="0" max="50" step="5" aria-label="Ad volume">
+          <span class="range-val" id="lowerVolumeVal">10%</span>
+        </div>
+        <label class="toggle-row">
+          <span><span class="t">Badge on the video</span><span class="d">Shows “Ad muted · 23s” over the player, with an Unmute button</span></span>
+          <span class="mini-switch"><input type="checkbox" id="overlay"><span></span></span>
+        </label>
+      </section>
+
+      <section class="card group">
+        <div class="row-label">When the match is back</div>
+        <label class="toggle-row">
+          <span><span class="t">Notification</span><span class="d">An alert when the ad break ends</span></span>
+          <span class="mini-switch"><input type="checkbox" id="notifyMatchBack"><span></span></span>
+        </label>
+        <label class="toggle-row">
+          <span><span class="t">Play a chime too</span><span class="d">A short sound as the match comes back</span></span>
+          <span class="mini-switch"><input type="checkbox" id="chime"><span></span></span>
+        </label>
+        <label class="toggle-row">
+          <span><span class="t">Only when I’m away</span><span class="d">No alert while the match is on screen</span></span>
+          <span class="mini-switch"><input type="checkbox" id="alertOnlyWhenAway"><span></span></span>
+        </label>
+      </section>
+
+      <section class="card group">
+        <div class="row-label">Sites</div>
+        <div id="sites" class="sites"></div>
+      </section>
+
+      <section class="card group">
+        <div class="row-label">Timing</div>
+        <div class="field-block">
+          <div class="field-head"><span>Gap between back-to-back ads</span><span class="range-val" id="graceVal">2.0s</span></div>
+          <input type="range" id="graceMs" min="0" max="5000" step="500" aria-label="Gap between ads">
+          <p class="hint">How long to wait after an ad for the next one before bringing the sound back. Raise it if you hear a blip between ads.</p>
+        </div>
+        <div class="field-block">
+          <div class="field-head"><span>Ad length when unknown</span><span class="range-val" id="defaultAdSecondsVal">15s</span></div>
+          <input type="range" id="defaultAdSeconds" min="5" max="60" step="5" aria-label="Default ad length">
+        </div>
+      </section>
+
+      <section class="card group">
+        <div class="rules">
+          <div>
+            <div class="t">Detection rules</div>
+            <div class="d" id="rulesInfo">…</div>
+          </div>
+          <button class="small" id="rulesRefresh">Check now</button>
+        </div>
+        <div class="btn-row">
+          <button class="small" id="resetStats">Reset stats</button>
+          <button class="small" id="report">Report a problem</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="sites.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome to Cricket Ad Muter</title>
+<link rel="icon" href="icons/icon-32.png">
+<link rel="stylesheet" href="welcome.css">
+</head>
+<body>
+  <main class="card">
+    <img src="icons/icon-128.png" alt="" class="logo" width="88" height="88">
+    <h1>Welcome to Cricket Ad Muter</h1>
+    <div class="ready" id="ready" hidden>✓ You're all set. Open a live match and ads will be muted automatically.</div>
+    <p class="lead">Ad breaks go quiet during live cricket on JioHotstar and SonyLIV, and the sound comes back the moment play resumes. Three quick steps:</p>
+
+    <ol class="steps">
+      <li class="step" id="stepAccess">
+        <div class="num">1</div>
+        <div class="body">
+          <h2>Pick where you watch</h2>
+          <p>Chrome will ask to let the extension work on the sites you pick. It needs that to notice when an ad starts. It works on no other site, and nothing is collected or sent anywhere. You can add the other one later from the extension's settings.</p>
+          <div class="picks" id="picks"></div>
+          <button class="primary" id="grant">Allow access</button>
+          <div class="done" id="granted" hidden></div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="num">2</div>
+        <div class="body">
+          <h2>Pin it to your toolbar</h2>
+          <p>Click the puzzle-piece icon <span class="kbd">🧩</span> at the top right of Chrome, then the pin next to <b>Cricket Ad Muter</b>. You'll see a live countdown on it during ads.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="num">3</div>
+        <div class="body">
+          <h2>Watch a match</h2>
+          <p>Open any live match. Ads are handled automatically, with a badge on the video while one plays. Want to hear an ad, or mute one that slipped through? Use the badge's button, or press <span class="kbd">Alt</span>+<span class="kbd">Shift</span>+<span class="kbd">M</span>. Press <span class="kbd">Alt</span>+<span class="kbd">Shift</span>+<span class="kbd">H</span> to pause.</p>
+          <div class="open-row" id="open"></div>
+        </div>
+      </li>
+    </ol>
+
+    <p class="fine">Cricket Ad Muter doesn't block or skip ads; it only controls your tab's volume. Not affiliated with JioStar, JioHotstar, Sony Pictures Networks India or SonyLIV.</p>
+  </main>
+  <script src="sites.js"></script>
+  <script src="welcome.js"></script>
+</body>
+</html>
